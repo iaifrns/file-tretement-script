@@ -3,11 +3,11 @@ import csv from 'csv-parser';
 import { createObjectCsvWriter as createCsvWriter } from 'csv-writer';
 
 // Define the column to check for duplicates
-const columnToCheck = 'annonceur'; // Replace with the actual column name
+const columnToCheck = 'telephone'; // Replace with the actual column name
 
 // Set up the paths
-const inputFilePath = 'C:/Users/franc/Desktop/vip sheet/thermostat1 call list/thermostat1 call list1.csv'; // Replace with the path to your input CSV file
-const outputFilePath = 'C:/Users/franc/Desktop/vip sheet/thermostat1 call list/thermostat1 call list1 v.csv'; // Path for the output CSV file
+const inputFilePath = 'C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/csv/done/final-leadsPv&Pac.csv'; // Replace with the path to your input CSV file
+const outputFilePath = 'C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/csv/done/final-leadsPv&Pacv.csv'; // Path for the output CSV file
 
 // Set up the CSV writer
 const csvWriter = createCsvWriter({
@@ -24,26 +24,41 @@ const csvWriter = createCsvWriter({
         {id: 'NUMERO DE TELEPHONE CONTACT', title: 'NUMERO DE TELEPHONE CONTACT'},
         {id: 'NUMERO DE TELEPHONE CONTACT2', title: 'NUMERO DE TELEPHONE CONTACT'},
         {id: 'Telephone', title: 'Telephone'}, */
-        {id: 'bi-denomination', title: 'bi-denomination'}, // Replace with actual column names
+        /* {id: 'bi-denomination', title: 'bi-denomination'}, // Replace with actual column names
         {id: 'pj-lb', title: 'pj-lb'}, // Replace with actual column names
         {id: 'bi-description', title: 'bi-description'},
-        {id: 'annonceur', title: 'annonceur'},
+        {id: 'annonceur', title: 'annonceur'}, */
+        /* {id: 'NOM DU CLIENT', title: 'NOM DU CLIENT'},
+        {id: 'PRENOM DU CLIENT', title: 'PRENOM DU CLIENT'},
+        {id: 'EMAIL', title: 'EMAIL'},
+        {id: 'ADRESSE', title: 'ADRESSE'},
+        {id: 'VILLE', title: 'VILLE'},
+        {id: 'CODE POSTAL', title: 'CODE POSTAL'},
+        {id: 'TELEPHONE', title: 'TELEPHONE'}, */
+        {id: 'prenom', title: 'prenom'},
+        {id: 'nom', title: 'nom'},
+        {id: 'adresse', title: 'adresse'},
+        {id: 'telephone', title: 'telephone'},
+        {id: 'ville', title: 'ville'},
+        {id: 'cp', title: 'cp'},
+        {id: 'email', title: 'email'},
         // Add as many as you need
-    ]
+    ],
+    fieldDelimiter: ','
 });
 
 const seen = new Set();
 const rows = [];
 
 fs.createReadStream(inputFilePath)
-    .pipe(csv())
+    .pipe(csv({separator: ','}))
     .on('data', (row) => {
         const cellValue = row[columnToCheck];
         if (!seen.has(cellValue)) {
             seen.add(cellValue);
             rows.push(row);
         }else{
-            console.log(cellValue)
+            console.log(cellValue, columnToCheck)
         }
     })
     .on('end', () => {
