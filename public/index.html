@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Merge</title>
+    <link rel="stylesheet" href="/css/mainPage.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="body">
+        <div>
+          <h1>Fusionnez vos fichiers CSV</h1>
+          <p id="errorMessage">Please enter all the informatios</p>
+        </div>
+        <input type="text" id="fileName" placeholder="Le nom du ficher"  />
+        <input type="file" id="uploadFile" webkitdirectory directory />
+        <button onclick="mergeCsvPagesLogic()">Fusionnez</button>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="./js/merge-cvs.js"></script>
+    <script src="./js/pageControl.js"></script>
+  </body>
+</html>
