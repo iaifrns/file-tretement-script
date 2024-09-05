@@ -34,11 +34,11 @@ function getCsvFiles(folderName) {
 }
 
 // Usage Example
-const inputFilePath = "C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/fichier MAZAL";
+const inputFilePath = "C:/Users/franc/Desktop/vip sheet/sheet 1/xx";
 
 const fileList = getCsvFiles(inputFilePath);
 console.log(fileList);
-const outputDir = "C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/csv";
+const outputDir = "C:/Users/franc/Desktop/vip sheet/sheet 1/xx/csv";
 
 for (let i =0; i< fileList.length; i++){
     convertXlsxToCsv(fileList[i], outputDir);
