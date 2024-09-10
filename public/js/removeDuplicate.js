@@ -3,11 +3,11 @@ import csv from 'csv-parser';
 import { createObjectCsvWriter as createCsvWriter } from 'csv-writer';
 
 // Define the column to check for duplicates
-const columnToCheck = 'mobile'; // Replace with the actual column name
+const columnToCheck = 'annonceur'; // Replace with the actual column name
 
 // Set up the pathssheet 1\xx\csv
-const inputFilePath = 'C:/Users/franc/Desktop/vip sheet/sheet 1/xx/csv/fichier prospect france 01 (25) (12).csv'; // Replace with the path to your input CSV file
-const outputFilePath = 'C:/Users/franc/Desktop/vip sheet/sheet 1/xx/csv/final-fichier prospect france 01.csv'; // Path for the output CSV file
+const inputFilePath = 'C:/Users/franc/Desktop/vip sheet/filevip/xx/done/final-thermostat1 list final 2 (2).csv'; // Replace with the path to your input CSV file
+const outputFilePath = 'C:/Users/franc/Desktop/vip sheet/filevip/xx/done/final-thermostat1 list final 2.csv'; // Path for the output CSV file
 
 // Set up the CSV writer
 const csvWriter = createCsvWriter({
@@ -24,10 +24,10 @@ const csvWriter = createCsvWriter({
         {id: 'NUMERO DE TELEPHONE CONTACT', title: 'NUMERO DE TELEPHONE CONTACT'},
         {id: 'NUMERO DE TELEPHONE CONTACT2', title: 'NUMERO DE TELEPHONE CONTACT'},
         {id: 'Telephone', title: 'Telephone'}, */
-        /* {id: 'bi-denomination', title: 'bi-denomination'}, // Replace with actual column names
+        {id: 'bi-denomination', title: 'bi-denomination'}, // Replace with actual column names
         {id: 'pj-lb', title: 'pj-lb'}, // Replace with actual column names
         {id: 'bi-description', title: 'bi-description'},
-        {id: 'annonceur', title: 'annonceur'}, */
+        {id: 'annonceur', title: 'annonceur'},
         /* {id: 'NOM DU CLIENT', title: 'NOM DU CLIENT'},
         {id: 'PRENOM DU CLIENT', title: 'PRENOM DU CLIENT'},
         {id: 'EMAIL', title: 'EMAIL'},
@@ -35,7 +35,7 @@ const csvWriter = createCsvWriter({
         {id: 'VILLE', title: 'VILLE'},
         {id: 'CODE POSTAL', title: 'CODE POSTAL'},
         {id: 'TELEPHONE', title: 'TELEPHONE'}, */
-        {id: 'id', title: 'id'},
+       /*  {id: 'id', title: 'id'},
         {id: 'code_postal', title: 'code_postal'},
         {id: 'ville', title: 'ville'},
         {id: 'adresse', title: 'adresse'},
@@ -51,7 +51,7 @@ const csvWriter = createCsvWriter({
         {id: 'tel2_prospection', title: 'tel2_prospection'},
         {id: 'tel3_prospection', title: 'tel3_prospection'},
         {id: 'mobile_prospection', title: 'mobile_prospection'},
-        {id: 'fax_prospection', title: 'fax_prospection'},
+        {id: 'fax_prospection', title: 'fax_prospection'}, */
         // Add as many as you need
     ],
     fieldDelimiter: ';'

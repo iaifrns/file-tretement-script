@@ -24,13 +24,13 @@ const removeRowsWithNoNumber = (data) => {
     const rows = data.split('\n')
     console.log(rows)
 
-    const header = rows.shift().split(',')
+    const header = rows.shift().split(';')
 
     const newData = [];
 
     rows.forEach(row => {
         let count = 0
-        const rowArr = row.split(',')
+        const rowArr = row.split(';')
         const mainIndex = header.indexOf(headerToControlle[0])
         headerToControlle.forEach(name => {
             const index = header.indexOf(name)
@@ -78,15 +78,15 @@ const getCsvFiles = (folder) => {
   return csvFile;
 };
 
-const folderName = "C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/csv/cc";
-const outputDir = "C:/Users/franc/Desktop/vip sheet//sheet 1/CNTE-20240206T105723Z-001/CNTE/csv/done";
+const folderName = "C:/Users/franc/Desktop/vip sheet/filevip/xx";
+const outputDir = "C:/Users/franc/Desktop/vip sheet/filevip/xx/done";
 
 const headerToControlle = [
   /* "annonceur",
   "number-contact 2",
   "annonceur 2",
   "number-contact", */
-  "telephone"
+  "annonceur"
 ];
 
 findEmptySpaces();

@@ -19,6 +19,9 @@ function convertXlsxToCsv(inputFilePath, outputDir) {
   const outputFilePath = path.join(outputDir, outputFileName);
 
   // Write the CSV data to the file
+  if(!fs.existsSync(outputDir)){
+    fs.mkdirSync(outputDir)
+  }
   fs.writeFileSync(outputFilePath, csvData, "utf8");
 
   console.log(`File successfully converted to ${outputFilePath}`);
@@ -34,11 +37,11 @@ function getCsvFiles(folderName) {
 }
 
 // Usage Example
-const inputFilePath = "C:/Users/franc/Desktop/vip sheet/sheet 1/xx";
+const inputFilePath = "C:/Users/franc/Desktop/vip sheet/New folder";
 
 const fileList = getCsvFiles(inputFilePath);
 console.log(fileList);
-const outputDir = "C:/Users/franc/Desktop/vip sheet/sheet 1/xx/csv";
+const outputDir = "C:/Users/franc/Desktop/vip sheet/New folder";
 
 for (let i =0; i< fileList.length; i++){
     convertXlsxToCsv(fileList[i], outputDir);
