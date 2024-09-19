@@ -4,7 +4,7 @@ import csvParser from "csv-parser";
 import { createObjectCsvWriter } from "csv-writer";
 
 const inputFilePath = "C:/Users/franc/Desktop/vip sheet/sheet 2/654888.csv"; // Replace with your CSV file path
-const outputDir = "C:/Users/franc/Desktop/vip sheet/sheet 2/output2"; // Directory to save the split CSV files
+const outputDir = "C:/Users/franc/Desktop/vip sheet/output2"; // Directory to save the split CSV files
 
 // Create the output directory if it doesn't exist
 if (!fs.existsSync(outputDir)) {

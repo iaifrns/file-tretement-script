@@ -42,7 +42,7 @@ const writeCSVFile = (header, data) => {
   for (let key in data) {
     const dataTable = [header, ...data[key]].join("\n");
 
-    const name = join(finalFilePath, key + "LISTE 77 26.12.csv");
+    const name = join(finalFilePath, key+".csv");
 
     fs.writeFile(name, dataTable, (err) => {
       if (err) {
@@ -55,9 +55,9 @@ const writeCSVFile = (header, data) => {
 };
 
 const filePath =
-  "C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/csv/done/final-leadsPv&Pacv.csv"; // Path for the output CSV file
+  "C:/Users/franc/Desktop/vip sheet/LISTE 94 26.12.csv"; // Path for the output CSV file
 const finalFilePath =
-  "C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/csv/done/";
+  "C:/Users/franc/Desktop/vip sheet/done2/";
 const index = 3;
 
 const correctDp = [
@@ -76,4 +76,33 @@ const correctDp = [
   "80",
   "60",
 ];
-getDataAndDivide();
+
+
+const seperator = () => {
+  fs.readFile(filePath, "utf8", (err, data) => {
+    if (err) {
+      console.log("Could not open the file sorry", err);
+      return;
+    }
+    const dataTable = data.split("\n");
+    const header = dataTable.shift();
+
+    const DataSet = {}
+
+    dataTable.forEach(item => {
+      const row = item.split(';')
+      const dp = (row[index-1] ?? "   ").slice(0,2)
+
+      if(!DataSet[dp]){
+        DataSet[dp] = []
+      }
+
+      DataSet[dp].push(item)
+    })
+    writeCSVFile(header, DataSet)
+    
+  })
+}
+
+
+seperator();
