@@ -3,8 +3,8 @@ import csvParser from "csv-parser";
 import { write } from "fast-csv";
 import path, { join } from "path";
 
-const fileLocation = "C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/CNTE/csv/row1";
-const finalLocation = "C:/Users/franc/Desktop/vip sheet/sheet 1/CNTE-20240206T105723Z-001/";
+const fileLocation = "D:/25-52-54-55-57-67-68-70-88-90";
+const finalLocation = "C:/Users/franc/Desktop/vip sheet/";
 
 function getCsvFiles(folderName) {
   const files = readdirSync(folderName);
@@ -19,7 +19,7 @@ function getCsvFiles(folderName) {
 }
 
 const inputFiles = getCsvFiles(fileLocation); // Add your CSV file names here pagesjaunes (24)
-const outputFile = "thermostat1 list3.csv";
+const outputFile = "merge list done.csv";
 /* const columnsToStay = [
   "bi-denomination",
   "pj-lb",
@@ -53,12 +53,13 @@ function mergeCSVFiles(inputFiles, outputFile) {
       .pipe(csvParser())
       .on("headers", (fileHeaders) => {
         if (!headers) {
-          headers = columnsToStay;
+          console.log(fileHeaders)
+          headers = fileHeaders;
           mergedData.push(headers);
         }
       })
       .on("data", (row) => {
-        const filteredRow = columnsToStay.map((column) => {
+        const filteredRow = headers.map((column) => {
           return row[column];
         });
         mergedData.push(Object.values(filteredRow));
