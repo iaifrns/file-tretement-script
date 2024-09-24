@@ -24,9 +24,8 @@ const csvWriter = createCsvWriter({
         {id: 'Date de Naissance', title: 'Date de Naissance'},
     ],
     fieldDelimiter: ','
-});			
+});
 
-const seen = [];
 const rows = [];
 
 fs.createReadStream(inputFilePath)
