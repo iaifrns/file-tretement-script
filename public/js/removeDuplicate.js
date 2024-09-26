@@ -6,7 +6,7 @@ import { createObjectCsvWriter as createCsvWriter } from 'csv-writer';
 const columnToCheck = 'annonceur'; // Replace with the actual column name
 
 // Set up the pathssheet 1\xx\csv
-const inputFilePath = 'C:/Users/franc/Desktop/vip sheet/filevip/xx/done/final-thermostat1 list final 2 (2).csv'; // Replace with the path to your input CSV file
+const inputFilePath = 'C:/Users/franc/Desktop/vip sheet/done3/autre.csv'; // Replace with the path to your input CSV file
 const outputFilePath = 'C:/Users/franc/Desktop/vip sheet/filevip/xx/done/final-thermostat1 list final 2.csv'; // Path for the output CSV file
 
 // Set up the CSV writer
@@ -69,7 +69,7 @@ fs.createReadStream(inputFilePath)
             seen.add(cellValue);
             rows.push(row);
         }else{
-            console.log(cellValue, columnToCheck)
+            //console.log(cellValue, columnToCheck)
         }
     })
     .on('end', () => {
