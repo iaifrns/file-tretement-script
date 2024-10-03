@@ -75,10 +75,10 @@ const write = (name, dataTable)=>{
       });
 }
 
-const dirPath = "F:/datas/DATA/data/CALO 2-20240206T101857Z-001/CALO 2/EHPAD/CSV"; // Path for the output CSV file
+const dirPath = "F:/datas/DATA/data/CALO BH2E-20240206T105701Z-001/CALO BH2E"; // Path for the output CSV file
 const finalFilePath1 = "F:/datas/DATA/B to B";
 const finalFilePath2 = "F:/datas/DATA/B to C";
-const folder = "CALO 2-EHPAD"
+const folder = "CALO BH2E"
 
 function getCsvFiles(folderName) {
   const files = readdirSync(folderName);
