@@ -54,18 +54,18 @@ const writeCSVFile = (header, data, fileName) => {
   const name1 = join(finalFilePath1, "bon departement IDF" + fileName + ".csv");
   const name2 = join(finalFilePath2, "autre " + fileName + ".csv");
 
-  createDir(finalFilePath1)
-  createDir(finalFilePath2)
+  createDir(finalFilePath1);
+  createDir(finalFilePath2);
 
   write(name1, dataTable1);
   write(name2, dataTable2);
 };
 
 const createDir = (dir) => {
-    if(!fs.existsSync(dir)){
-        fs.mkdirSync(dir)
-    }
-}
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+};
 
 const write = (name, dataTable) => {
   fs.writeFile(name, dataTable, (err) => {
@@ -77,19 +77,103 @@ const write = (name, dataTable) => {
   });
 };
 
-const docPath = "F:/datas/DATA/B to C"; // Path for the output CSV file
-const finalFilePath1 = "F:/datas/DATA/done/autre/bon departement";
-const finalFilePath2 = "F:/datas/DATA/done/autre/autre";
+const docPath = "C:/Users/franc/Desktop/vip sheet/thermostat file 1"; //"C:/Users/franc/Desktop/vip sheet/done3"; // Path for the output CSV file
+const finalFilePath1 = "C:/Users/franc/Desktop/vip sheet/thermostat file 1/bon departement1";
+const finalFilePath2 = "C:/Users/franc/Desktop/vip sheet/thermostat file 1/autre";
 
-const correctDp = [
+const dps = [
+  "62",
+  "59",
+  "80",
+  "60",
+  "91",
+  "92",
+  "93",
+  "94",
+  "95",
+  "78",
+  "77",
+  "27",
+  "28",
+  "55",
+  "54",
+  "57",
+  "67",
+  "68",
+  "90",
+  "88",
+  "52",
+  "25",
+  "21",
+  "35",
+  "53",
+  "56",
+  "72",
+  "37",
+  "41",
+  "36",
+  "22",
+  "29",
+  "85",
+  "79",
+  "86",
+  "44",
+  "49",
+  "69",
   "38",
   "73",
   "74",
   "01",
-  "69",
   "42",
-  "43"
+  "63",
+  "03",
+  "23",
+  "19",
+  "15",
+  "43",
+  "71",
+  "33",
+  "24",
+  "19",
+  "16",
+  "17",
+  "87",
 ];
+
+const oldDps = [
+  "25",
+  "52",
+  "54",
+  "55",
+  "57",
+  "67",
+  "68",
+  "70",
+  "88",
+  "90",
+  "76",
+  "27",
+  "80",
+  "60",
+];
+
+const treateDpArr = () => {
+  const newSet = new Set();
+  dps.forEach((dp) => {
+    newSet.add(dp);
+  });
+
+  let arr = [...newSet];
+
+  /* oldDps.forEach(dp=> {
+    const ids = arr.indexOf(dp)
+    if(ids != -1){
+      arr = arr.filter((_,i)=>(i!=ids))
+    }
+  }) */
+
+  return arr;
+};
 
 function getCsvFiles(folderName) {
   const files = readdirSync(folderName);
@@ -104,6 +188,8 @@ function getCsvFiles(folderName) {
 }
 
 const fileP = getCsvFiles(docPath);
+
+const correctDp = treateDpArr();
 
 fileP.forEach((file) => {
   getDataAndDivide(file);
